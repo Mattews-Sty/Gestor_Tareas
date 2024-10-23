@@ -1,0 +1,40 @@
+Pasos para iniciar la ejecución y el desarrollo 
+
+1. Crea Tu Entorno Virtual:
+
+python -m venv venv
+./venv/Scripts/activate
+
+
+
+ Fn + F1
+Select Interpreter
+Selecciona: Python ('venv':venv) Recommended
+
+2. Instala las dependencias del Backend:
+
+pip install -r requirements.txt
+
+3. Con el venv activo comprueba la ejecución del servidor del Backend
+
+cd task_manager
+python manage.py runserver
+
+4. Instala las dependencias del Frontend: 
+
+cd ..
+cd frontend
+npm install
+npm install vue-router
+npm install axios
+npm install bootstrap@5
+
+
+
+
+5. Con el venv activo comprueba la ejecución del servidor del Frontend
+
+npm run serve 
+
+6. Diviértanse Programando Scrumers :)  
+

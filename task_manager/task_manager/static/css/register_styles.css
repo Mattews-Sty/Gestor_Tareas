@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@400..700&family=Ubuntu+Condensed&display=swap');
+
+
+
+.container{
+    height: 100vh; 
+    background-color: #7300a7
+    
+}
+
+/* Estilo común para los formularios (login y register) */
+.form-container {
+    width: 100%;
+    height: 65%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    
+}
+
+/* Título del formulario */
+.form-container h2 {
+    color: #7300a7;
+    font-family: "Bowlby One";
+}
+
+.form-group input, label, button, a{
+    font-family: "Rajdhani";
+    font-weight: bolder
+}
+
+.form-group label {
+    display: block;
+    color: #7300a7; /* Color morado */
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: "Ubuntu Condensed";
+}
+
+.form-group input:focus {
+    outline-color: #7300a7 /* Morado al hacer foco en el input */
+}
+
+
+/* Estilo para los mensajes de error */
+#message{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    color: #e74c3c;
+    background-color: #f8d7da;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 20px;
+    font-family: "Rajdhani";
+    font-weight: bolder;
+    font-size:larger;
+}
+
+.btn-custom{
+    background-color: #7300a7; /* Color morado */
+    padding: 10px;
+    color: white; /* Color del texto */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size:larger;
+    
+}
+
+.btn-custom:hover{
+    background-color: #682c84; /* Color morado */
+}
+
