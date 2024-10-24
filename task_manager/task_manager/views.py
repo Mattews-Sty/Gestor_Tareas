@@ -70,7 +70,7 @@ def login_user(request):
     return render(request, 'login.html')  # Si no es POST, muestra el formulario
 
 
-from django.contrib.auth.forms import PasswordResetForm
+from django.contrib.auth.forms import PasswordResetForm , SetPasswordForm
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.sites.shortcuts import get_current_site
@@ -88,7 +88,7 @@ def password_reset(request):
     else:
         form = PasswordResetForm()
         
-    return render(request, 'password_reset.html', {'form': form})
+    return render(request, 'password_reset.html')
 
 
 def login_view(request):
@@ -112,3 +112,22 @@ def dashboard(request):
 
 def home(request):
     return render(request, 'home.html')  
+
+def password_reset_done(request):
+    return render(request, 'password_reset_done.html')
+
+
+# views.py
+from django.urls import reverse_lazy
+from django.contrib.auth.views import PasswordResetConfirmView
+from .forms import CustomSetPasswordForm
+
+class CustomPasswordResetConfirmView(PasswordResetConfirmView):
+    form_class = CustomSetPasswordForm
+    success_url = reverse_lazy('login')
+    template_name = 'set_password.html'
+
+    def form_valid(self, form):
+        # Aquí es donde puedes agregar notificación de éxito
+        messages.success(self.request, '¡Contraseña cambiada exitosamente!')
+        return super().form_valid(form)
