@@ -16,6 +16,7 @@
     <div class="form-container">
         <h2 class="text-center mb-3">LOG IN</h2>
         <form method="POST">
+            
             {% csrf_token %}
             <div class="mt-3 form-group">
                 <label for="username">Username:</label>
@@ -25,8 +26,15 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
             </div>
+
+            {% if messages %}
+                {% for message in messages %}
+                <p class="my-2" id="message">{{ message }}<p>
+                {% endfor %}
+            {% endif %}
+
             <div class="d-flex  justify-content-center align-items-center">
-            <button class="btn-lg my-3 btn-primary" type="submit">Login</button>
+            <button class="btn-lg my-2 btn-primary" type="submit">Login</button>
             </div>
 
             
@@ -39,16 +47,6 @@
                 <a href="{% url 'password_reset' %}">Forgot your password?</a>
                 </div>
             </form>
-        </form>
-        
-        {% if messages %}
-            
-                {% for message in messages %}
-                <p id="message">{{ message }}</p>
-                {% endfor %}
-            
-        {% endif %}
-        
     </div>
 </div>
 </body>

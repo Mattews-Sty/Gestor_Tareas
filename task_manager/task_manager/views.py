@@ -1,43 +1,41 @@
+# views.py
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
-from django.contrib import messages  # Importar el sistema de mensajes
+from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.conf import settings
+from django.contrib import messages
+from .forms import RegisterForm
 
 def register_user(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        email = request.POST['email']
-
-        # Verificar si el nombre de usuario o el correo electrónico ya existen
-        if User.objects.filter(username=username).exists():
-            messages.error(request, 'El nombre de usuario ya existe.')
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            email = form.cleaned_data.get('email')
+            # Crear el nuevo usuario
+            user = User.objects.create_user(username=username, email=email, password=password)
+            user.save()
+            send_mail(
+                'Cuenta Creada Exitosamente',
+                f'¡Hola {username}!\n\nTu cuenta ha sido creada con éxito en nuestra plataforma.\n\n\n\n© 2024, The Scrumers Team. Todos los derechos reservados.',
+                settings.EMAIL_HOST_USER,
+                [email],
+                fail_silently=False,
+            )
+            # Autenticar y loguear al usuario recién creado
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.success(request, 'Cuenta creada exitosamente. ¡Bienvenido!')
+                return redirect('dashboard')  # Redirigir al dashboard después del login
+        else:
+            for error in form.errors.values():
+                messages.error(request, error)
             return redirect('register')  # Redirigir para mostrar el mensaje
-
-        if User.objects.filter(email=email).exists():
-            messages.error(request, 'Ya existe una cuenta con ese correo electrónico.')
-            return redirect('register')  # Redirigir para mostrar el mensaje
-
-        # Crear el nuevo usuario
-        user = User.objects.create_user(username=username, email=email, password=password)
-        user.save()
-        send_mail(
-            'Cuenta Creada Exitosamente',  # Asunto
-            f'¡Hola {username}!\n\nTu cuenta ha sido creada con éxito en nuestra plataforma.\n\n\n\n© 2024, The Scrumers Team. Todos los derechos reservados. ',  # Cuerpo del mensaje
-            settings.EMAIL_HOST_USER,  # Remitente (tu correo desde settings.py)
-            [email],  # Destinatario (el correo del usuario)
-            fail_silently=False,
-        )
-        # Autenticar y loguear al usuario recién creado
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            login(request, user)
-            messages.success(request, 'Cuenta creada exitosamente. ¡Bienvenido!')
-            return redirect('dashboard')  # Redirigir al dashboard después del login
-
-    # Si el método es GET, renderizar el formulario de registro
+    else:
+        form = RegisterForm()
     return render(request, 'register.html')
 
 
@@ -76,7 +74,7 @@ from django.contrib.auth.models import User
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.contrib.auth.tokens import default_token_generator
-from django.contrib.auth import get_user_model
+
 
 # Vista para la página de recuperación de contraseña
 def password_reset(request):
@@ -85,9 +83,11 @@ def password_reset(request):
         if form.is_valid():
             form.save(request=request)
             return redirect('password_reset_done')
+        for error in form.errors.values():
+                messages.error(request, error)
+        return redirect('password_reset')  # Redirigir para mostrar el mensaje
     else:
         form = PasswordResetForm()
-        
     return render(request, 'password_reset.html')
 
 
