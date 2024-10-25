@@ -24,8 +24,8 @@ def register_user(request):
         user = User.objects.create_user(username=username, email=email, password=password)
         user.save()
         send_mail(
-            'Cuenta creada exitosamente',  # Asunto
-            f'Hola {username},\n\nTu cuenta ha sido creada con éxito en nuestra plataforma.',  # Cuerpo del mensaje
+            'Cuenta Creada Exitosamente',  # Asunto
+            f'¡Hola {username}!\n\nTu cuenta ha sido creada con éxito en nuestra plataforma.\n\n\n\n© 2024, The Scrumers Team. Todos los derechos reservados. ',  # Cuerpo del mensaje
             settings.EMAIL_HOST_USER,  # Remitente (tu correo desde settings.py)
             [email],  # Destinatario (el correo del usuario)
             fail_silently=False,
