@@ -2,32 +2,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@400..700&family=Ubuntu+Condensed&display=swap');
 
-
+body{
+    background: #6441A5;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2a0845, #6441A5);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2a0845, #6441A5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 
 .container{
     height: 100vh; 
-    background-color: #7300a7
-    
 }
 
 /* Estilo común para los formularios (login y register) */
 .form-container {
     width: 100%;
-    min-height: 60%;
+    min-height: 57%;
     max-width: 400px;
     margin: 50px auto;
     padding: 30px;
-    background-color:  white;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.769);
     transition: all 0.3s ease;
     overflow: visible; /* Cambiar a visible para permitir la expansión */
 }
 
 /* Título del formulario */
 .form-container h2 {
-    width: 100%;
-    color: #7300a7;
+    color: #6441A5;
     font-family: "Bowlby One";
 }
 
@@ -36,15 +37,20 @@
     font-weight: bolder
 }
 
+.form-group input{
+    background-color: transparent;
+}
+
+
 .form-group label {
     display: block;
-    color: #7300a7; /* Color morado */
+    color: #6441A5; /* Color morado */
 }
 
 .form-group input {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ddd;
+    border: 1px solid #6441A5;
     border-radius: 4px;
     box-sizing: border-box;
     font-family: "Ubuntu Condensed";
@@ -65,7 +71,7 @@
 }
 
 .btn-custom{
-    background-color: #7300a7; /* Color morado */
+    background-color: #6441A5; /* Color morado */
     padding: 10px;
     color: white; /* Color del texto */
     border: none;
@@ -76,6 +82,6 @@
 }
 
 .btn-custom:hover{
-    background-color: #682c84; /* Color morado */
+    background-color: #2a0845; /* Color morado */
 }
 
