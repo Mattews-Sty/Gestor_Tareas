@@ -28,9 +28,11 @@
             </div>
 
             {% if messages %}
+            <div class="alert w-100 w-sm-50 h-10 py-1 mt-3 alert-danger" role="alert"></div>
                 {% for message in messages %}
-                <p class="my-2" id="message">{{ message }}<p>
+                <p class="my-2 fs-6 text-center fw-bolder" id="message">{{ message }}<p>
                 {% endfor %}
+            </div>
             {% endif %}
 
             <div class="d-flex  justify-content-center align-items-center">

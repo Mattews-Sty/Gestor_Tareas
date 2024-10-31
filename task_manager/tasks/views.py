@@ -15,7 +15,7 @@ def login_view(request):
             login(request, user)
             return redirect('dashboard')  # Cambia 'dashboard' por la ruta de tu dashboard
         else:
-            messages.error(request, "Nombre de usuario o contraseña incorrectos")
+            messages.error(request, "Usuario o Contraseña Incorrectos")
     return render(request, 'login.html')  # Llama a la plantilla de inicio de sesión
 
 # views.py

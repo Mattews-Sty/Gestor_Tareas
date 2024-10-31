@@ -28,7 +28,7 @@ def register_user(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                messages.success(request, 'Cuenta creada exitosamente. ¡Bienvenido!')
+                messages.success(request, 'Cuenta Creada Exitosamente. ¡Bienvenido!')
                 return redirect('dashboard')  # Redirigir al dashboard después del login
         else:
             for error in form.errors.values():
@@ -62,7 +62,7 @@ def login_user(request):
             login(request, user)
             return redirect('dashboard')  # Redirige al dashboard después de iniciar sesión
         else:
-            messages.error(request, "Nombre de usuario o contraseña incorrectos")
+            messages.error(request, "Usuario o Contraseña Incorrectos")
             return render(request, 'login.html')  # Vuelve a mostrar el formulario de login
 
     return render(request, 'login.html')  # Si no es POST, muestra el formulario
@@ -77,18 +77,23 @@ from django.contrib.auth.tokens import default_token_generator
 
 
 # Vista para la página de recuperación de contraseña
+from django.contrib import messages
+from django.shortcuts import render, redirect
+from .forms import CustomPasswordResetForm
+
 def password_reset(request):
     if request.method == 'POST':
-        form = PasswordResetForm(request.POST)
+        form = CustomPasswordResetForm(request.POST)
         if form.is_valid():
-            form.save(request=request)
             return redirect('password_reset_done')
         for error in form.errors.values():
-                messages.error(request, error)
+            messages.error(request, error)
         return redirect('password_reset')  # Redirigir para mostrar el mensaje
     else:
-        form = PasswordResetForm()
-    return render(request, 'password_reset.html')
+        form = CustomPasswordResetForm()
+    return render(request, 'password_reset.html', {'form': form})
+
+
 
 
 def login_view(request):
@@ -100,7 +105,7 @@ def login_view(request):
             login(request, user)
             return redirect('dashboard')  # Cambia 'dashboard' por la ruta de tu dashboard
         else:
-            messages.error(request, "Nombre de usuario o contraseña incorrectos")
+            messages.error(request, "Usuario o Contraseña Incorrectos")
     return render(request, 'login.html')  # Llama a la plantilla de inicio de sesión
 
 # views.py
@@ -129,5 +134,5 @@ class CustomPasswordResetConfirmView(PasswordResetConfirmView):
 
     def form_valid(self, form):
         # Aquí es donde puedes agregar notificación de éxito
-        messages.success(self.request, '¡Contraseña cambiada exitosamente!')
+        messages.success(self.request, '¡Contraseña Reestablecida Exitosamente!')
         return super().form_valid(form)
