@@ -128,7 +128,7 @@ def password_reset(request):
 from django.shortcuts import render
 
 def dashboard(request):
-    return render(request, 'dashboard.html')  # Asegúrate de tener este template
+    return render(request, 'base.html')  # Asegúrate de tener este template
 
 def home(request):
     return render(request, 'home.html')  

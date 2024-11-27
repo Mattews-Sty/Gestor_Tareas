@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def proyecto_list(request):
     proyectos = Proyecto.objects.filter(creador=request.user)
-    return render(request, 'proyectos/proyecto_list.html', {'proyectos': proyectos})
+    return render(request, 'proyecto_list.html', {'proyectos': proyectos})
 
 
 
@@ -21,13 +21,13 @@ def proyecto_list(request):
 @login_required
 def detalle_proyecto(request, pk):
     proyecto = get_object_or_404(Proyecto, pk=pk)
-    return render(request, 'proyectos/detalle_proyecto.html', {'proyecto': proyecto})
+    return render(request, 'detalle_proyecto.html', {'proyecto': proyecto})
 
 @login_required
 def tarea_list(request, proyecto_id):
     proyecto = Proyecto.objects.get(id=proyecto_id, creador=request.user)
     tareas = Tarea.objects.filter(proyecto=proyecto)
-    return render(request, 'proyectos/tarea_list.html', {'proyecto': proyecto, 'tareas': tareas})
+    return render(request, 'tarea_list.html', {'proyecto': proyecto, 'tareas': tareas})
 
 @login_required
 def tarea_create(request, proyecto_id):
@@ -41,7 +41,7 @@ def tarea_create(request, proyecto_id):
             return redirect('tarea_list', proyecto_id=proyecto.id)
     else:
         form = TareaForm()
-    return render(request, 'proyectos/tarea_form.html', {'form': form, 'proyecto': proyecto})
+    return render(request, 'tarea_form.html', {'form': form, 'proyecto': proyecto})
 
 
 
@@ -65,7 +65,7 @@ def editar_colaboradores(request, pk):
             return redirect('detalle_proyecto', pk=proyecto.pk)
     else:
         form = ProyectoColaboradoresForm(instance=proyecto)
-    return render(request, 'proyectos/editar_colaboradores.html', {'form': form})
+    return render(request, 'editar_colaboradores.html', {'form': form})
 
 
 from django.shortcuts import render, get_object_or_404, redirect
@@ -83,12 +83,12 @@ def proyecto_create(request):
             return redirect('proyecto_list')
     else:
         form = ProyectoForm()
-    return render(request, 'proyectos/crear_proyecto.html', {'form': form})
+    return render(request, 'crear_proyecto.html', {'form': form})
 
 
 def proyecto_list(request):
     proyectos = Proyecto.objects.filter(colaboradores=request.user) | Proyecto.objects.filter(creador=request.user)
-    return render(request, 'proyectos/proyecto_list.html', {'proyectos': proyectos})
+    return render(request, 'proyecto_list.html', {'proyectos': proyectos})
 
 
 
@@ -105,7 +105,7 @@ def eliminar_proyecto(request, pk):
     if request.method == 'POST':
         proyecto.delete()
         return redirect('proyecto_list')
-    return render(request, 'proyectos/eliminar_proyecto.html', {'proyecto': proyecto})
+    return render(request, 'eliminar_proyecto.html', {'proyecto': proyecto})
 
 
 def editar_proyecto(request, pk):
@@ -119,4 +119,4 @@ def editar_proyecto(request, pk):
             return redirect('detalle_proyecto', pk=proyecto.pk)
     else:
         form = ProyectoForm(instance=proyecto)
-    return render(request, 'proyectos/editar_proyecto.html', {'form': form})
+    return render(request, 'editar_proyecto.html', {'form': form})

@@ -11,7 +11,7 @@
         <h1 style="color: #fff;">Bienvenido al Dashboard</h1>
         {% if user.is_authenticated %}
             <div class="user-info" style="color: #fff; font-size: 16px; margin-right: 20px;">
-                <p>Hola, {{ user.username }}!</p> <!-- Mostrar nombre de usuario en la parte superior -->
+                <p>Hola, {{ user }}!</p> <!-- Mostrar nombre de usuario en la parte superior -->
             </div>
         {% endif %}
     </header>
@@ -33,7 +33,9 @@
             </nav>
         </div>
         <div class="main-content">
-            {% block content %}{% endblock %}
+            {% block content %}
+            <p>¡Has iniciado sesión correctamente!</p>
+            {% endblock %}
         </div>
     </div>
 </body>
