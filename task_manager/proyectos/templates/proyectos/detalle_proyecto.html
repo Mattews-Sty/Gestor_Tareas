@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle del Proyecto</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">Inicio</a></li>
+                    <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                    <li><a href="{% url 'proyecto_list' %}">Lista de Proyectos</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
+                    {% else %}
+                        <li><a href="{% url 'login' %}">Iniciar Sesión</a></li>
+                        <li><a href="{% url 'register' %}">Registrarse</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+        <div class="main-content">
+            <h1>{{ proyecto.nombre }}</h1>
+            <p><strong>Descripción:</strong> {{ proyecto.descripcion }}</p>
+            <p><strong>Fecha Límite:</strong> {{ proyecto.fecha_limite }}</p>
+            <p><strong>Creado por:</strong> {{ proyecto.creador.username }}</p> <!-- Mostrar creador -->
+            <p><strong>Colaboradores:</strong> 
+                {% for colaborador in proyecto.colaboradores.all %}
+                    {{ colaborador.username }}{% if not forloop.last %}, {% endif %}
+                {% empty %}
+                    Ninguno
+                {% endfor %}
+            </p>
+            <a href="{% url 'editar_colaboradores' proyecto.pk %}">Editar Colaboradores</a>
+        </div>
+    </div>
+</body>
+</html>

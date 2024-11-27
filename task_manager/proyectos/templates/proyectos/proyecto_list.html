@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Proyectos</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">Inicio</a></li>
+                    <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                    <li><a href="{% url 'proyecto_list' %}">Lista de Proyectos</a></li>
+                    <li><a href="{% url 'crear_proyecto' %}">Crear Proyecto</a></li> <!-- Agregar enlace para crear proyecto -->
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
+                    {% else %}
+                        <li><a href="{% url 'login' %}">Iniciar Sesión</a></li>
+                        <li><a href="{% url 'register' %}">Registrarse</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+        <div class="main-content">
+            <h1>Lista de Proyectos</h1>
+            <ul class="project-list">
+                {% for proyecto in proyectos %}
+                    <li>
+                        <a href="{% url 'detalle_proyecto' proyecto.pk %}">{{ proyecto.nombre }}</a>
+                        {% if user == proyecto.creador %}
+                            <a href="{% url 'editar_proyecto' proyecto.pk %}">Editar</a>
+                            <a href="{% url 'eliminar_proyecto' proyecto.pk %}" style="color: red;">Eliminar</a>
+                        {% elif user in proyecto.colaboradores.all %}
+                            <a href="{% url 'editar_proyecto' proyecto.pk %}">Editar</a>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

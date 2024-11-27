@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Mi Aplicación{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 20px; background-color: #34495e;">
+        <h1 style="color: #fff;">Bienvenido al Dashboard</h1>
+        {% if user.is_authenticated %}
+            <div class="user-info" style="color: #fff; font-size: 16px; margin-right: 20px;">
+                <p>Hola, {{ user.username }}!</p> <!-- Mostrar nombre de usuario en la parte superior -->
+            </div>
+        {% endif %}
+    </header>
+    <div class="container">
+        <div class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">Inicio</a></li>
+                    <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                    <li><a href="{% url 'proyecto_list' %}">Lista de Proyectos</a></li>
+                    <li><a href="{% url 'crear_proyecto' %}">Crear Proyecto</a></li> <!-- Enlace para crear proyecto -->
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
+                    {% else %}
+                        <li><a href="{% url 'login' %}">Iniciar Sesión</a></li>
+                        <li><a href="{% url 'register' %}">Registrarse</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+        <div class="main-content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+#proyectos h2 {
+    color: #333;
+}
+
+#proyectos ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#proyectos li {
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#proyectos a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+#proyectos a:hover {
+    text-decoration: underline;
+}
