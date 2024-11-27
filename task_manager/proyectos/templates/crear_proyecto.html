@@ -1,9 +1,9 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Crear Proyecto</title>
-    {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'css/crear_proyecto_styles.css' %}">
 </head>
@@ -15,7 +15,7 @@
                     <li><a href="{% url 'home' %}">Inicio</a></li>
                     <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
                     <li><a href="{% url 'proyecto_list' %}">Lista de Proyectos</a></li>
-                    <li><a href="{% url 'crear_proyecto' %}">Crear Proyecto</a></li> <!-- Enlace para crear proyecto -->
+                    <li><a href="{% url 'crear_proyecto' %}">Crear Proyecto</a></li>
                     {% if user.is_authenticated %}
                         <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
                     {% else %}
@@ -27,14 +27,29 @@
         </div>
         <div class="main-content">
             <h1>Crear Proyecto</h1>
-            <form method="post">
-                <div class="form">
+            <br>
+            <form method="post" action="{% url 'crear_proyecto' %}">
                 {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">Crear Proyecto</button>
+                
+                <div class="form-group">
+                    <label for="id_nombre">Nombre Del Proyecto</label>
+                    <input type="text" id="id_nombre" name="nombre" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="id_descripcion">Descripción</label>
+                    <textarea id="id_descripcion" name="descripcion" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="id_fecha_limite">Fecha Límite</label>
+                    <input type="date" id="id_fecha_limite" name="fecha_limite" class="form-control">
+                </div>
+                <div id="button">
+                <button type="submit" class="btn">Crear Proyecto</button>
+                </div>
             </div>
             </form>
         </div>
     </div>
 </body>
 </html>
+

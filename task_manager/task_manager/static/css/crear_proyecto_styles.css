@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+h1 {
+    text-align: start;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    justify-content: center;
+    text-align: center;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: "Rajdhani";
+    font-weight: bolder;
+    font-size: larger;
+}
+
+.form-control {
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+#button{
+justify-content: center;
+text-align: center;
+}
