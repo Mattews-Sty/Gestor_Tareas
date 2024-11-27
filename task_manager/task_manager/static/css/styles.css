@@ -15,6 +15,10 @@ header {
     align-items: center;
 }
 
+h1{
+    font-family: "Federant";
+}
+
 .user-info {
     font-size: 16px;
     color: #fff;
@@ -60,7 +64,7 @@ header {
 .main-content {
     flex: 1;
     padding: 30px;
-    background-color: #ecf0f1;
+
 }
 
 .project-list {
@@ -107,4 +111,3 @@ button {
 button:hover {
     background-color: #2980b9;
 }
-

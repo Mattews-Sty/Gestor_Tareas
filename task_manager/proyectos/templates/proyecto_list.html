@@ -5,6 +5,7 @@
     <title>Lista de Proyectos</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/proyecto_list_styles.css' %}">
 </head>
 <body>
     <div class="container">
@@ -25,20 +26,31 @@
             </nav>
         </div>
         <div class="main-content">
-            <h1>Lista de Proyectos</h1>
-            <ul class="project-list">
+            <h1>Lista De Proyectos</h1>
+            
+            <div class="project-list">
                 {% for proyecto in proyectos %}
-                    <li>
-                        <a href="{% url 'detalle_proyecto' proyecto.pk %}">{{ proyecto.nombre }}</a>
+                <div class="project-box">
+                    
+                        <a class="project-name" href="{% url 'detalle_proyecto' proyecto.pk %}">{{ proyecto.nombre }}</a>
                         {% if user == proyecto.creador %}
-                            <a href="{% url 'editar_proyecto' proyecto.pk %}">Editar</a>
-                            <a href="{% url 'eliminar_proyecto' proyecto.pk %}" style="color: red;">Eliminar</a>
+                        <div class="container_actions">   
+                        <a href="{% url 'editar_proyecto' proyecto.pk %}">
+                                <img src="{% static 'images/icons/pencil-square.svg' %}"></a>
+                            <a href="{% url 'eliminar_proyecto' proyecto.pk %}" >
+                                <img src="{% static 'images/icons/trash_fill.svg' %}"></a>
+                            </a>
+                        </div> 
                         {% elif user in proyecto.colaboradores.all %}
-                            <a href="{% url 'editar_proyecto' proyecto.pk %}">Editar</a>
+                            <a href="{% url 'editar_proyecto' proyecto.pk %}">
+                                <a href="{% url 'editar_proyecto' proyecto.pk %}">
+                                    <img src="{% static 'images/icons/pencil-square.svg' %}"></a>
+                            </a>
                         {% endif %}
-                    </li>
+                    
+                </div>
                 {% endfor %}
-            </ul>
+            </div>
         </div>
     </div>
 </body>

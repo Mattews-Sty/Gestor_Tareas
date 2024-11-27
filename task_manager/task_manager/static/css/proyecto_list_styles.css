@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Federant&display=swap');
+body {
+    font-family: Arial, sans-serif;
+
+    margin: 0;
+    padding: 0;
+}
+
+.main-content {
+    max-width: 1305px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #00c6ff;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0072ff, #00c6ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+
+h1 {
+    text-align: center;
+    font-family: "Federant";;
+}
+
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.project-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-item a {
+    text-decoration: none;
+    color: #333;
+}
+
+.project-item img {
+    margin-right: 10px;
+}
+
+.project-box{
+    background-color: rgba(255, 255, 255, 0.419);
+    border-radius: 5px;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid black;
+    box-shadow: 3px 3px 4px black;
+    transition: transform 0.2s;
+}
+
+.project-box:hover{
+    transform: scale(1.10);
+}
+
+.project-name{
+    text-decoration-line: none;
+    font-family: "Rajdhani";
+    font-weight: bolder;
+    font-size:x-large;
+    color: black;
+}
+
+.container_actions img{
+    width: 22px;
+    height: 22px;
+    margin: 2px 0;
+}
+/*EN CASO DE PROBLEMAS CON LA VISUALIZACION DE LOS PROYECTOS ELIMINAR ARCHIVO Y ENLACE EL EL HTML*/

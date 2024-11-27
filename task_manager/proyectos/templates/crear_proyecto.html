@@ -5,6 +5,7 @@
     <title>Crear Proyecto</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/crear_proyecto_styles.css' %}">
 </head>
 <body>
     <div class="container">
@@ -27,9 +28,11 @@
         <div class="main-content">
             <h1>Crear Proyecto</h1>
             <form method="post">
+                <div class="form">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit">Crear Proyecto</button>
+            </div>
             </form>
         </div>
     </div>
