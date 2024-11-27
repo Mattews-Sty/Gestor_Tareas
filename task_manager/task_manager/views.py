@@ -88,21 +88,38 @@ from django.contrib.auth.tokens import default_token_generator
 
 
 # Vista para la página de recuperación de contraseña
+
+from .forms import CustomPasswordResetForm
+from django.contrib.auth.views import PasswordResetView
+
+
+from django.contrib.auth.views import PasswordResetView
+from django.contrib.auth.forms import PasswordResetForm
+from django.urls import reverse_lazy
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from .forms import CustomPasswordResetForm
 
 def password_reset(request):
     if request.method == 'POST':
         form = CustomPasswordResetForm(request.POST)
         if form.is_valid():
-            return redirect('password_reset_done')
+            email = form.cleaned_data['email']
+            form = PasswordResetForm({'email': email})
+            if form.is_valid():
+                view = PasswordResetView.as_view(
+                    template_name='registration/password_reset_form.html',
+                    email_template_name='registration/password_reset_email.html',
+                    subject_template_name='registration/password_reset_subject.txt',
+                    success_url=reverse_lazy('password_reset_done')
+                )
+                return view(request)
         for error in form.errors.values():
             messages.error(request, error)
         return redirect('password_reset')  # Redirigir para mostrar el mensaje
     else:
         form = CustomPasswordResetForm()
     return render(request, 'password_reset.html', {'form': form})
+
 
 
 

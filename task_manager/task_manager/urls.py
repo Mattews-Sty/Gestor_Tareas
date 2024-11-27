@@ -18,6 +18,6 @@ urlpatterns = [
     path('crear-proyecto/', proyectos_views.proyecto_create, name='crear_proyecto'),
     path('proyecto/<int:pk>/', proyectos_views.detalle_proyecto, name='detalle_proyecto'),
     path('proyectos/', include('proyectos.urls')),  # Incluir las URLs de la app 'proyectos'
-    path('accounts/', include('django.contrib.auth.urls')),  # URLs de autenticación
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
 ]
+
