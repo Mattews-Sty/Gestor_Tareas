@@ -72,38 +72,3 @@ header h1{
 
 }
 
-.logout{
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-
-
-
-/*.nav{
-    margin-bottom: 50px;
-}
-
-.brand{
-    width: 200px;
-    height: 20px;
-}
-.brand p{
-    font-family: "Bowlby One";
-    color: white;
-    font-size: xx-large;
-    margin-bottom: -5px;
-}
-.welcome div{
-    margin-top: 50%;
-}
-.welcome h1, p {
-    color: black;
-    font-family: "Rajdhani";
-    font-weight: bolder;
-    text-align: center;
-}*/

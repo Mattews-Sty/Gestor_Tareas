@@ -25,9 +25,7 @@
                     <li><a href="{% url 'proyecto_list' %}">Lista de Proyectos</a></li>
                     <li><a href="{% url 'crear_proyecto' %}">Crear Proyecto</a></li> <!-- Enlace para crear proyecto -->
                     {% if user.is_authenticated %}
-                    <div class="logout">
                         <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
-                    </div>
                         {% else %}
                         <li><a href="{% url 'login' %}">Iniciar Sesión</a></li>
                         <li><a href="{% url 'register' %}">Registrarse</a></li>
