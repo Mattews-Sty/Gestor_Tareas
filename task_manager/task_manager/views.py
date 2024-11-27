@@ -51,7 +51,7 @@ def login_view(request):
         if user is not None:
             login(request, user)
             logger.info(f"Usuario {username} autenticado correctamente. Redirigiendo a proyecto_create.")
-            return redirect('proyecto_create')  # Redirigir a la creación de proyectos después del login
+            return redirect('dashboard.html')  # Redirigir a la creación de proyectos después del login
         else:
             messages.error(request, "Usuario o Contraseña Incorrectos")
             logger.warning(f"Fallo de autenticación para el usuario {username}.")
@@ -126,9 +126,6 @@ def password_reset(request):
 # views.py
 
 from django.shortcuts import render
-
-def dashboard(request):
-    return render(request, 'base.html')  # Asegúrate de tener este template
 
 def home(request):
     return render(request, 'home.html')  

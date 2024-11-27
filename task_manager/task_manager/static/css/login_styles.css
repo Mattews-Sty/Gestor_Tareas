@@ -15,6 +15,7 @@ body{
 /* Estilo común para los formularios (login y register) */
 .form-container {
     width: 100%;
+    min-height: 57%;
     max-width: 400px;
     margin: 50px auto;
     padding: 30px;

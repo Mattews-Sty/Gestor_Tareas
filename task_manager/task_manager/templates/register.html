@@ -14,18 +14,18 @@
 <body>
 <div class="container d-flex justify-content-center align-items-center">
     <div class="form-container">
-        <h2 class="text-center mb-3">REGISTER</h2>
+        <h2 class="text-center mb-3">RESGÍSTRATE</h2>
         <form method="POST">
             {% csrf_token %}
             <div class="form-group">
-                <label for="username">Username:</label>
+                <label for="username">Usuario:</label>
                 <input type="text" id="username" name="username" class="form-control" required value="{{ form.username.value|default_if_none:'' }}">
                 {% if form.username.errors %}
                         {{ form.username.errors.as_text}}
                 {% endif %}
             </div>
             <div class="form-group">
-                <label for="email">Email:</label>
+                <label for="email">Correo:</label>
                 <input type="email" id="email" name="email" class="form-control" required value="{{ form.email.value|default_if_none:'' }}">
                 {% if form.email.errors %}
                         {{ form.email.errors.as_text}}
@@ -33,7 +33,7 @@
                 {% endif %}
             </div>
             <div class="form-group">
-                <label for="password1">Password:</label>
+                <label for="password1">Contraseña:</label>
                 <input type="password" id="password1" name="password1" class="form-control" required>
                 {% if form.password1.errors %}
                         {{ form.password1.errors.as_text}}
@@ -41,7 +41,7 @@
                 {% endif %}
             </div>
             <div class="form-group">
-                <label for="password2">Confirm Password:</label>
+                <label for="password2">Confirma Contraseña:</label>
                 <input type="password" id="password2" name="password2" class="form-control" required>
                 {% if form.password2.errors %}
                         {{ form.password2.errors.as_text}}
@@ -59,10 +59,10 @@
         
 
             <div class="d-flex mt-3 justify-content-center align-items-center">
-                <button class="btn-custom" type="submit">Register</button>
+                <button class="btn-custom" type="submit">Registrar</button>
             </div>
             <div class="d-flex mt-2 justify-content-end">
-                <p><a href="{% url 'login' %}">Regresar al login</a></p>
+                <p><a href="{% url 'login' %}">Regresar A Iniciar Sesión</a></p>
             </div>
         </form>
         

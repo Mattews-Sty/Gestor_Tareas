@@ -3,10 +3,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@400..700&family=Ubuntu+Condensed&display=swap');
 
 body{
-    background: #6441A5;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #2a0845, #6441A5);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #2a0845, #6441A5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
+    background: #00c6ff;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0072ff, #00c6ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
 
 .container{
     height: 100vh; 
@@ -28,7 +28,7 @@ body{
 
 /* Título del formulario */
 .form-container h2 {
-    color: #6441A5;
+    color:  #0072ff;
     font-family: "Bowlby One";
 }
 
@@ -44,20 +44,20 @@ body{
 
 .form-group label {
     display: block;
-    color: #6441A5; /* Color morado */
+    color:  #0072ff; /* Color morado */
 }
 
 .form-group input {
     width: 100%;
     padding: 12px;
-    border: 1px solid #6441A5;
+    border: 1px solid  #0072ff;
     border-radius: 4px;
     box-sizing: border-box;
     font-family: "Ubuntu Condensed";
 }
 
 .form-group input:focus {
-    outline-color: #7300a7 /* Morado al hacer foco en el input */
+    outline-color:  #072ff7; /* Morado al hacer foco en el input */
 }
 
 #message p{
@@ -71,7 +71,7 @@ body{
 }
 
 .btn-custom{
-    background-color: #6441A5; /* Color morado */
+    background-color:  #0072ff; /* Color morado */
     padding: 10px;
     color: white; /* Color del texto */
     border: none;
@@ -82,5 +82,5 @@ body{
 }
 
 .btn-custom:hover{
-    background-color: #2a0845; /* Color morado */
+    background-color: #00c6ff; /* Color morado */
 }
