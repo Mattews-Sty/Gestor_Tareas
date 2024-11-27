@@ -1,4 +1,90 @@
-.nav{
+
+@import url('https://fonts.googleapis.com/css2?family=Federant&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@400..700&family=Ubuntu+Condensed&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    
+    font-family: "Rajdhani";
+    font-weight: bolder;
+    background-color: #343a40;;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header h1{
+    margin-left: 20px;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.user-info p {
+    font-size: larger;
+}
+
+.sidebar {
+    font-family: "Federant";
+    width: 150px;
+    background-color: #343a40;
+    padding: 20px;
+    color: #fff;
+    display: flex; flex-direction: column; height: 100vh;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #ecf0f1;
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #0075c1;
+}
+
+.main-content {
+    flex: 1;
+    padding: 30px;
+    background-color: #ecf0f1;
+
+}
+
+.logout{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+
+
+/*.nav{
     margin-bottom: 50px;
 }
 
@@ -20,4 +106,4 @@
     font-family: "Rajdhani";
     font-weight: bolder;
     text-align: center;
-}
+}*/
