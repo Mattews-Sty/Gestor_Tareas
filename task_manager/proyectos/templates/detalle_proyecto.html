@@ -5,6 +5,7 @@
     <title>Detalle del Proyecto</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/detalle_proyecto_styles.css' %}">
 </head>
 <body>
     <div class="container">
@@ -25,18 +26,21 @@
         </div>
         <div class="main-content">
             <h1>{{ proyecto.nombre }}</h1>
-            <p><strong>Descripción:</strong> {{ proyecto.descripcion }}</p>
-            <p><strong>Fecha Límite:</strong> {{ proyecto.fecha_limite }}</p>
-            <p><strong>Creado por:</strong> {{ proyecto.creador.username }}</p> <!-- Mostrar creador -->
-            <p><strong>Colaboradores:</strong> 
+            <p>Descripción: {{ proyecto.descripcion }}</p>
+            <p>Fecha Límite: {{ proyecto.fecha_limite }}</p>
+            <p>Creado por: {{ proyecto.creador.username }}</p> <!-- Mostrar creador -->
+            <p>Colaboradores:
                 {% for colaborador in proyecto.colaboradores.all %}
                     {{ colaborador.username }}{% if not forloop.last %}, {% endif %}
                 {% empty %}
                     Ninguno
                 {% endfor %}
             </p>
-            <a href="{% url 'editar_colaboradores' proyecto.pk %}">Editar Colaboradores</a>
-        </div>
+            <div class="container_actions">
+            <a href="{% url 'editar_colaboradores' proyecto.pk %}">
+                <img src="{% static 'images/icons/person-add.svg' %}"></a>
+            </div>
+            </div>
     </div>
 </body>
 </html>
