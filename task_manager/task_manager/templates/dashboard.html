@@ -13,11 +13,16 @@
         {% if user.is_authenticated %}
             <div class="user-info" style="color: #fff; font-size: 20px; margin-right: 20px;">
                 <p>Hola, {{ user }}!</p> <!-- Mostrar nombre de usuario en la parte superior -->
-                <a href="{% url 'view_profile' %}">Ver Perfil</a> <!-- Enlace para ver perfil -->
-                {% if profile.profile_image %}
-                    <img src="{{ profile.profile_image.url }}" alt="Imagen de perfil" >
+                
+                
+                {% if user.profile.profile_image %}
+                <a href="{% url 'view_profile' %}">
+                    <img src="{{ user.profile.profile_image.url }}" alt="Imagen de perfil" >
+                </a> <!-- Enlace para ver perfil -->
                 {% else %}
-                <img src="{{ profile.profile_image.url }}" alt="Imagen de perfil" >
+                <a href="{% url 'view_profile' %}">
+                    <img src="{% static 'images/icons/user.png' %}">
+                </a> <!-- Enlace para ver perfil -->
                 {% endif %}
             </div>
         {% endif %}

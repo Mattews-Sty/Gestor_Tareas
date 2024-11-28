@@ -28,10 +28,28 @@ header h1{
     display: flex;
     min-height: 100vh;
 }
+.user-info{
+    display: flex ;
+    align-items: center;
+    gap: 20px;
+
+}
 
 .user-info p {
     font-size: larger;
 }
+
+.user-info img{
+    width: 65px; /* Ajusta el tamaño según tus necesidades */
+    height: 65px; /* Ajusta el tamaño según tus necesidades */
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    margin-top: -4px;
+}
+
+
 
 .sidebar {
     font-family: "Federant";
