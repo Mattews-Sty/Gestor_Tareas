@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Perfil</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h1>Editar Perfil</h1>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{ user_form.username.label_tag }}
+                        {{ user_form.username }}
+                        <div class="invalid-feedback">
+                            {{ user_form.username.errors }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ user_form.email.label_tag }}
+                        {{ user_form.email }}
+                        <div class="invalid-feedback">
+                            {{ user_form.email.errors }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ profile_form.bio.label_tag }}
+                        {{ profile_form.bio }}
+                    </div>
+                    <div class="form-group">
+                        {{ profile_form.location.label_tag }}
+                        {{ profile_form.location }}
+                    </div>
+                    <div class="form-group">
+                        {{ profile_form.birth_date.label_tag }}
+                        {{ profile_form.birth_date }}
+                        <div class="invalid-feedback">
+                            {{ profile_form.birth_date.errors }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ profile_form.profile_image.label_tag }}
+                        {{ profile_form.profile_image }}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    <a href="{% url 'dashboard' %}" class="btn btn-secondary">Volver Al Dashboard</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.amazonaws.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

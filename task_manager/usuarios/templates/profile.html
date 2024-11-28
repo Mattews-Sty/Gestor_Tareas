@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil de Usuario</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h1>Perfil de {{ profile.user.username }}</h1>
+            </div>
+            <div class="card-body">
+                {% if profile.profile_image %}
+                    <img src="{{ profile.profile_image.url }}" class="img-thumbnail mb-3" alt="Imagen de perfil" style="max-width: 150px;">
+                {% else %}
+                    <p>No hay imagen de perfil.</p>
+                {% endif %}
+                <p><strong>Biografía:</strong> {{ profile.bio }}</p>
+                <p><strong>Ubicación:</strong> {{ profile.location }}</p>
+                <p><strong>Fecha de Nacimiento:</strong> {{ profile.birth_date }}</p>
+                <a href="{% url 'edit_profile' %}" class="btn btn-primary">Editar Perfil</a>
+                <a href="{% url 'dashboard' %}" class="btn btn-secondary">Volver Al Dashboard</a> <!-- Botón para volver a la página principal -->
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.amazonaws.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

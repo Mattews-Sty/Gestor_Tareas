@@ -13,6 +13,12 @@
         {% if user.is_authenticated %}
             <div class="user-info" style="color: #fff; font-size: 20px; margin-right: 20px;">
                 <p>Hola, {{ user }}!</p> <!-- Mostrar nombre de usuario en la parte superior -->
+                <a href="{% url 'view_profile' %}">Ver Perfil</a> <!-- Enlace para ver perfil -->
+                {% if profile.profile_image %}
+                    <img src="{{ profile.profile_image.url }}" alt="Imagen de perfil" >
+                {% else %}
+                <img src="{{ profile.profile_image.url }}" alt="Imagen de perfil" >
+                {% endif %}
             </div>
         {% endif %}
     </header>
