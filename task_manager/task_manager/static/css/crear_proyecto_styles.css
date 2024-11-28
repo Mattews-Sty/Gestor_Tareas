@@ -28,6 +28,7 @@ h1 {
 .btn {
     padding: 10px 20px;
     background-color: #007bff;
+    font-family: "Rajdhani";
     color: white;
     border: none;
     border-radius: 5px;
@@ -43,3 +44,6 @@ h1 {
 justify-content: center;
 text-align: center;
 }
+
+
+
