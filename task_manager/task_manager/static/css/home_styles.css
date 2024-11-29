@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@400..700&family=Ubuntu+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Federant&display=swap');
 
 body{
     background: #00c6ff;  /* fallback for old browsers */
@@ -9,13 +10,49 @@ body{
     
 }
 
+a{
+    font-family: "Federant";
+}
+
 .brand{
     width: 200px;
     height: 20px;
 }
 .brand p{
-    font-family: "Bowlby One";
-    color: white;
+    font-family: "Federant";
+    font-weight: bolder;
     font-size: xx-large;
-    margin-bottom: -5px;
+    margin-bottom: -25px;
 }
+
+
+/*
+#1CB5E0, #00c6ff
+#1488CC
+#2B32B2*/
+
+.gradient-brand {
+    background: linear-gradient(to right,#00c6ff,#0072ff, #0072ff, #00c6ff);
+    
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    margin-bottom: -25px;
+    animation: gradient 20s linear infinite;
+}
+
+@keyframes gradient {
+    0%{
+        background-position:  0 0;
+    }
+    50%{
+        background-position: -80rem 0;
+    }
+    100%{
+        background-position: 0 0;
+    }
+    
+}
+

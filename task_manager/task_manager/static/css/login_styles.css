@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Federant&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@400..700&family=Ubuntu+Condensed&display=swap');
 
 body{
@@ -29,12 +29,13 @@ body{
 /* Título del formulario */
 .form-container h2 {
     color: #0075c1;
-    font-family: "Bowlby One";
+    font-family: "Federant";
+    font-weight: bolder;
 }
 
-.form-group input, label, button, a{
-    font-family: "Rajdhani";
-    font-weight: bolder
+.form-group input, label, a{
+    font-family: "Federant";
+    font-weight: bolder;
 }
 
 .form-group label {
@@ -74,4 +75,9 @@ body{
 
 #label_link{
     font-family: "Rajdhani";
+}
+
+.form-container button{
+    font-family: "Federant";
+    
 }
