@@ -26,10 +26,30 @@ body{
 }
 
 /* Título del formulario */
-.form-container h2 {
-    color:  #0072ff;
+.form-container h1 {
     font-family: "Federant";
     font-weight: bolder;
+    background: linear-gradient(to right,#00c6ff, #0072ff, #0072ff, #00c6ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    margin-bottom: -25px;
+    animation: gradient 20s linear infinite;
+}
+
+@keyframes gradient {
+    0%{
+        background-position:  0 0;
+    }
+    50%{
+        background-position: -80rem 0;
+    }
+    100%{
+        background-position: 0 0;
+    }
+    
 }
 
 .form-group input, label, a{
@@ -45,10 +65,19 @@ body{
 .form-group label {
     display: block;
     color:  #0072ff; /* Color morado */
+    background: linear-gradient(to right,#00c6ff, #0072ff, #0072ff, #00c6ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    animation: gradient 20s linear infinite;
 }
 
 .form-group input {
     width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
     padding: 12px;
     border: 1px solid  #0072ff;
     border-radius: 4px;
