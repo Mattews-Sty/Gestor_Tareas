@@ -14,16 +14,17 @@ body{
 
 /* Estilo común para los formularios (login y register) */
 .form-container {
+    position: relative;
     width: 100%;
     min-height: 57%;
     max-width: 400px;
     margin: 50px auto;
     padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 15px; /* Redondea las esquinas */
     background-color: rgba(255, 255, 255, 0.769);
     transition: all 0.3s ease;
-    overflow: visible; /* Cambiar a visible para permitir la expansión */
+    overflow: visible; /* Permitir la expansión */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra para darle profundidad */
 }
 
 /* Título del formulario */

@@ -25,7 +25,7 @@
             </nav>
         </div>
         <div class="main-content">
-            <h1>{{ proyecto.nombre }}</h1>
+            <h1>{{ proyecto.nombre.upper }}</h1>
             <p>Descripción: {{ proyecto.descripcion }}</p>
             <p>Fecha Límite: {{ proyecto.fecha_limite }}</p>
             <p>Creado por: {{ proyecto.creador.username }}</p> <!-- Mostrar creador -->

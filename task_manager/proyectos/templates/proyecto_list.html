@@ -31,7 +31,7 @@
                 {% for proyecto in proyectos %}
                 <div class="project-box">
                     
-                        <a class="project-name" href="{% url 'detalle_proyecto' proyecto.pk %}">{{ proyecto.nombre }}</a>
+                        <a class="project-name" href="{% url 'detalle_proyecto' proyecto.pk %}">{{ proyecto.nombre.upper }}</a>
                         {% if user == proyecto.creador %}
                         <div class="container_actions">   
                         <a href="{% url 'editar_proyecto' proyecto.pk %}">
@@ -42,11 +42,9 @@
                         </div> 
                         {% elif user in proyecto.colaboradores.all %}
                             <a href="{% url 'editar_proyecto' proyecto.pk %}">
-                                <a href="{% url 'editar_proyecto' proyecto.pk %}">
-                                    <img src="{% static 'images/icons/pencil-square.svg' %}"></a>
+                                <img id="edit" src="{% static 'images/icons/pencil-square.svg' %}">
                             </a>
                         {% endif %}
-                    
                 </div>
                 {% endfor %}
             </div>

@@ -13,8 +13,7 @@ header {
     
     font-family: "Federant";
     font-weight: bolder;
-    background-color: #343a40;;
-    color: #fff;
+    background-color: #343a40;
     text-align: center;
     display: flex;
     justify-content: space-between;
@@ -22,7 +21,29 @@ header {
 }
 header h1{
     margin-left: 20px;
+    font-family: "Federant";
+    font-weight: bolder;
+    background: linear-gradient(to right,#00d2ff, #3a7bd5, #3a7bd5, #00d2ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    animation: gradient 20s linear infinite;
 }
+    
+    @keyframes gradient {
+        0%{
+            background-position:  0 0;
+        }
+        50%{
+            background-position: -80rem 0;
+        }
+        100%{
+            background-position: 0 0;
+        }
+        
+    }
 
 .container {
     display: flex;
@@ -37,6 +58,28 @@ header h1{
 
 .user-info p {
     font-size: larger;
+    font-family: "Federant";
+    font-weight: bolder;
+    background: linear-gradient(to right,#00d2ff, #3a7bd5, #3a7bd5, #00d2ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    animation: gradient 20s linear infinite;
+}
+
+@keyframes gradient {
+    0%{
+        background-position:  0 0;
+    }
+    50%{
+        background-position: -80rem 0;
+    }
+    100%{
+        background-position: 0 0;
+    }
+    
 }
 
 .user-info img{

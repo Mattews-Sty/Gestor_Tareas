@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Mi Aplicación{% endblock %}</title>
+    <title>{% block title %}Dashboard{% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/dashboard_styles.css' %}">
 
 </head>
 <body>
     <header>
-        <h1>Bienvenido al Dashboard</h1>
+        <h1>Bienvenido Al Dashboard</h1>
         {% if user.is_authenticated %}
             <div class="user-info" style="color: #fff; font-size: 20px; margin-right: 20px;">
-                <p>Hola, {{ user }}!</p> <!-- Mostrar nombre de usuario en la parte superior -->
+                <p>¡Hola, {{ user }}!</p> <!-- Mostrar nombre de usuario en la parte superior -->
                 
                 
                 {% if user.profile.profile_image %}
