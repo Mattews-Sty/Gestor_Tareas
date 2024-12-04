@@ -56,3 +56,9 @@ a{
     
 }
 
+.back img{
+    width: 380px;
+    height: 380px;
+    background-attachment: fixed;
+}
+

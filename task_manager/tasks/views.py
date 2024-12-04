@@ -45,17 +45,23 @@ def tarea_list(request, proyecto_id):
 
 @login_required
 def tarea_create(request, proyecto_id):
-    proyecto = get_object_or_404(Proyecto, id=proyecto_id, creador=request.user)
-    if request.method == 'POST':
-        form = TareaForm(request.POST)
-        if form.is_valid():
-            tarea = form.save(commit=False)
-            tarea.proyecto = proyecto
-            tarea.save()
-            return redirect('tarea_list', proyecto_id=proyecto.id)
+    proyecto = get_object_or_404(Proyecto, id=proyecto_id)
+    
+    # Verificar si el usuario es el creador o un colaborador
+    if request.user == proyecto.creador or request.user in proyecto.colaboradores.all():
+        if request.method == 'POST':
+            form = TareaForm(request.POST)
+            if form.is_valid():
+                tarea = form.save(commit=False)
+                tarea.proyecto = proyecto
+                tarea.save()
+                return redirect('tarea_list', proyecto_id=proyecto.id)
+        else:
+            form = TareaForm()
+        return render(request, 'tarea_form.html', {'form': form, 'proyecto': proyecto})
     else:
-        form = TareaForm()
-    return render(request, 'tarea_form.html', {'form': form, 'proyecto': proyecto})
+        return redirect('proyecto_list')  # Redirigir a la lista de proyectos si el usuario no tiene permisos
+
 
 @login_required
 def tarea_edit(request, tarea_id):
