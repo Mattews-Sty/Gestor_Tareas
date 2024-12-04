@@ -26,7 +26,7 @@
         </div>
         <div class="main-content">
             <h1>{{ proyecto.nombre.upper }}</h1>
-            <p>Descripción: {{ proyecto.descripcion }}</p>
+            <p>Descripción:{{ proyecto.descripcion }}</p>
             <p>Fecha Límite: {{ proyecto.fecha_limite }}</p>
             <p>Creado por: {{ proyecto.creador.username }}</p> <!-- Mostrar creador -->
             <p>Colaboradores:
@@ -40,9 +40,8 @@
             <a href="{% url 'editar_colaboradores' proyecto.pk %}">
                 <img src="{% static 'images/icons/person-add.svg' %}">
             </a>
-
-            <a href="{% url 'tarea_list' proyecto.id %}">Volver a la lista de tareas</a>
-            <a href="{% url 'tarea_create' proyecto.id %}">Crear nueva tarea</a>
+            <a href="{% url 'tarea_list' proyecto.id %}"><img src="{% static 'images/icons/tareas.ico' %}"></a>
+            <a href="{% url 'tarea_create' proyecto.id %}"><img src="{% static 'images/icons/agregar-tarea.png' %}"></a>
             </div>
             </div>
     </div>

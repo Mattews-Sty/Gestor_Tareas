@@ -30,6 +30,19 @@ def tarea_list(request, proyecto_id):
     tareas = Tarea.objects.filter(proyecto=proyecto)
     return render(request, 'tarea_list.html', {'proyecto': proyecto, 'tareas': tareas})
 
+from django.shortcuts import render, get_object_or_404
+from .models import Tarea
+from proyectos.models import Proyecto
+
+def tarea_list(request, proyecto_id):
+    proyecto = get_object_or_404(Proyecto, id=proyecto_id)
+    if request.user in proyecto.colaboradores.all() or request.user == proyecto.creador:
+        tareas = Tarea.objects.filter(proyecto=proyecto)
+        return render(request, 'tarea_list.html', {'proyecto': proyecto, 'tareas': tareas})
+    else:
+        return redirect('proyecto_list')  # Redirige a la lista de proyectos si el usuario no tiene acceso
+
+
 @login_required
 def tarea_create(request, proyecto_id):
     proyecto = get_object_or_404(Proyecto, id=proyecto_id, creador=request.user)
