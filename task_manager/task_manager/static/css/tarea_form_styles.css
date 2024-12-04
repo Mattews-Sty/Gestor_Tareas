@@ -1,0 +1,20 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+/* Estilos para los grupos de formularios */
+.form-group label, input{
+    font-family: 'Federant';
+    margin-top: 5px;
+}
+
+/* Estilos para las etiquetas de los campos */
+label {
+    color: white;
+}
+
+/* Estilos para los campos de entrada de texto */
+input{
+    font-family: 'Rajdhani';
+    background: transparent;
+}
+

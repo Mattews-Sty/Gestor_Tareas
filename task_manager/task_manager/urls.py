@@ -7,7 +7,6 @@ from django.contrib.auth import views as auth_views
 from .views import CustomPasswordResetConfirmView
 from proyectos import views as proyectos_views  # Importar las vistas de 'proyectos'
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
@@ -22,6 +21,7 @@ urlpatterns = [
     path('proyecto/<int:pk>/', proyectos_views.detalle_proyecto, name='detalle_proyecto'),
     path('proyectos/', include('proyectos.urls')),  # Incluir las URLs de la app 'proyectos'
     path('usuarios/', include('usuarios.urls')),
+    path('tasks/', include('tasks.urls')),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

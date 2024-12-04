@@ -1,0 +1,27 @@
+    {% extends 'base.html' %}
+
+    {% load static %}
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    
+
+    {% block title %}Detalle de Tarea{% endblock %}
+
+    {% block content %}
+    <h1 class="my-4">DETALLE TAREA: {{ tarea.nombre.upper }}</h1>
+    <p><strong>Descripción:</strong> {{ tarea.descripcion }}</p>
+    <p><strong>Estado:</strong> {{ tarea.get_estado_display }}</p>
+    <p><strong>Asignado a:</strong> {{ tarea.asignado_a }}</p>
+    <p><strong>Fecha de Creación:</strong> {{ tarea.fecha_creacion }}</p>
+
+    {% if tarea.estado != 'Done' %}
+    <form method="post">
+        {% csrf_token %}
+        <button class="btn btn-dark fw-bolder my-3" style="font-family: 'Federant';" type="submit">Completar Tarea</button>
+    </form>
+    {% else %}
+    <p>Tarea Completada.</p>
+    {% endif %}
+    <a class="btn btn-secondary fw-bolder" href="{% url 'tarea_list' tarea.proyecto.id %}">Volver a la Lista</a>
+    {% endblock %}

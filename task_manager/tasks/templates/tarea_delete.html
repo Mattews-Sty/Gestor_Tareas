@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirmar Eliminación</title>
+</head>
+<body>
+    <h1>¿Estás seguro de que deseas eliminar esta tarea?</h1>
+    <p>Nombre: {{ tarea.nombre }}</p>
+    <p>Descripción: {{ tarea.descripcion }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Sí, eliminar</button>
+    </form>
+    <a href="{% url 'tarea_list' tarea.proyecto.id %}">Cancelar</a>
+</body>
+</html>
+{% endblock %}

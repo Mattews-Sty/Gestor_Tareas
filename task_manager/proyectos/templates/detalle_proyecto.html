@@ -38,7 +38,11 @@
             </p>
             <div class="container_actions">
             <a href="{% url 'editar_colaboradores' proyecto.pk %}">
-                <img src="{% static 'images/icons/person-add.svg' %}"></a>
+                <img src="{% static 'images/icons/person-add.svg' %}">
+            </a>
+
+            <a href="{% url 'tarea_list' proyecto.id %}">Volver a la lista de tareas</a>
+            <a href="{% url 'tarea_create' proyecto.id %}">Crear nueva tarea</a>
             </div>
             </div>
     </div>

@@ -1,0 +1,62 @@
+
+body{
+    background: #44A08D;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #093637, #44A08D);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #093637, #44A08D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+
+h1 , a, p{
+    font-family: 'Federant';
+    color: white;
+}
+
+.status{
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.tasks-details{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.tasks-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tasks-box{
+    background-color: rgba(255, 255, 255, 0.419);
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: 3px 3px 4px #343a40;
+    transition: transform 0.2s;
+}
+
+.tasks-box:hover{
+    transform: scale(1.10);
+}
+
+.task-name{
+    text-decoration-line: none;
+    font-family: "Federant";
+    font-weight: bolder;
+    font-size:x-large;
+    color: white
+}
+
+.container_actions img{
+    width: 22px;
+    height: 22px;
+    margin: 2px 0;
+}
+

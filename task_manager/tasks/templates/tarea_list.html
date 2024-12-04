@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Tareas</title>
+</head>
+<body>
+    
+    {% extends 'base.html' %}
+
+    {% load static %}
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    
+
+    {% block title %}Lista de Tareas{% endblock %}
+    
+    {% block content %}
+    <h1 class="mb-4 justify-content-center">LISTA DE TAREAS ~{{ proyecto.nombre.upper }}~</h1>
+
+    <div class="tasks-list">
+            {% for tarea in tareas %}
+            <div class="tasks-box">
+                <div class="task-details">
+                <a class="task-name" href="{% url 'tarea_detail' tarea.id %}">{{ tarea.nombre.upper }}</a> 
+                <div class="status">
+                <p class="">{{ tarea.get_estado_display }}</p>
+                </div>
+                </div>
+                <div class="container_actions"> 
+                    <a href="{% url 'tarea_edit' tarea.id %}"><img src="{% static 'images/icons/pencil-square.svg' %}"></a> 
+                    <a href="{% url 'tarea_delete' tarea.id %}"><img src="{% static 'images/icons/trash_fill.svg' %}"></a>
+            </div>
+            </div>
+            {% endfor %}
+    </div>
+    <a class="btn fw-bolder btn-secondary my-4" href="{% url 'proyecto_list' %}">Volver A Proyectos</a>
+    <a class="btn fw-bolder btn-dark  my-4" href="{% url 'tarea_create' proyecto.id %}">Crear Tarea</a>
+    {% endblock %}
+</body>
+</html>

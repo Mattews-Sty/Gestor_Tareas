@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ form.instance.pk|default:"Crear Tarea" }}{% endblock %}
+
+{% block content %}
+<div class="d-flex flex-column justify-content-center align-items-center" style="min-height: 100vh;">
+    <h1>{% if form.instance.pk %}EDITAR TAREA{% else %}CREAR TAREA{% endif %}</h1>
+    <form method="post" class="w-50">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="id_nombre">Nombre</label>
+            <input type="text" name="nombre" maxlength="100" class="form-control" id="id_nombre" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="id_descripcion">Descripción</label>
+            <textarea name="descripcion" class="form-control" id="id_descripcion" rows="4" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="id_proyecto">Proyecto</label>
+            <select name="proyecto" class="form-control" id="id_proyecto" required>
+                {% for proyecto in form.fields.proyecto.queryset %}
+                    <option value="{{ proyecto.pk }}">{{ proyecto }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="id_asignado_a">Asignado a</label>
+            <select name="asignado_a" class="form-control" id="id_asignado_a" required>
+                {% for usuario in form.fields.asignado_a.queryset %}
+                    <option value="{{ usuario.pk }}">{{ usuario }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="id_estado">Estado</label>
+            <select name="estado" class="form-control" id="id_estado" required>
+                {% for estado in form.fields.estado.choices %}
+                    <option value="{{ estado.0 }}">{{ estado.1 }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <button class="btn btn-dark my-4" style="font-family: 'Federant';" type="submit">Guardar</button>
+    </form>
+    <div><a class="btn btn-secondary" href="{% url 'tarea_list' proyecto.id %}">Volver a la Lista</a></div>
+</div>
+{% endblock %}

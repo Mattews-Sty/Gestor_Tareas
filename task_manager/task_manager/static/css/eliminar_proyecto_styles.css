@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Federant&display=swap');
+
+
+a{
+    text-decoration-line: none;
+    color: white;
+    font-family: 'Federant';
+    
+}
+
+button, p{
+    font-family: 'Federant';
+}
+
+p{
+    font-size: larger;
+}
+
+#cancel{
+    background-color: gray;
+}

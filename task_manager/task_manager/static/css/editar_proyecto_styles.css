@@ -1,8 +1,18 @@
 
+body{
+    background: #00c6ff;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0072ff, #00c6ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+.main{
+    margin: 160px auto;
+}
+
 .form-container {
-    width: 80%;
+    width: 60%;
     margin: 0 auto;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.539);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -10,6 +20,7 @@
 
 h1{
     text-align: center;
+    color: black;
 }
 
 .form-group {
@@ -22,7 +33,7 @@ h1{
 }
 
 .form-control {
-    width: 100%;
+    width: 98%;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -37,7 +48,6 @@ h1{
 }
 
 .btn-primary {
-    width: 100%;
     padding: 10px 20px;
     background-color: #007bff;
     color: white;
@@ -49,4 +59,18 @@ h1{
 
 .btn-primary:hover {
     background-color: #0056b3;
+}
+
+label{
+    font-family: 'Federant';
+}
+
+#cancel{
+    background-color: gray;
+    font-family: 'Federant';
+}
+
+.form-container a{
+    text-decoration-line: none;
+    color: white;
 }

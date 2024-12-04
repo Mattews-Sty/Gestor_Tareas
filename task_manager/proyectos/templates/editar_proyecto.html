@@ -6,14 +6,19 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'css/editar_proyecto_styles.css' %}">
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
     
 </head>
 <body>
-    
-        <h1>Editar Proyecto</h1>
+    <div class="main">
+    <div class="form-container">
+        <h1>EDITAR PROYECTO</h1>
     
     <main>
-        <div class="form-container">
+        
+        
             <form method="post">
                 {% csrf_token %}
                 <div class="form-group">
@@ -28,9 +33,13 @@
                     <label for="id_fecha_limite">Fecha Límite</label>
                     <input type="date" id="id_fecha_limite" name="fecha_limite" value="{{ form.fecha_limite.value }}" class="form-control">
                 </div>
-                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                <div class="d-flex flex-row ">
+                <button type="submit" class="btn btn-primary" style="font-family: 'Federant';">Guardar Cambios</button>
+                <a class="btn btn-secondary mx-3" style="font-family: 'Federant';" href="{% url 'proyecto_list' %}">Cancelar</a>
+                </div>
             </form>
         </div>
     </main>
+</div>
 </body>
 </html>

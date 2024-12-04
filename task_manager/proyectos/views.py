@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Proyecto, Tarea
-from .forms import ProyectoForm, TareaForm
+from .models import Proyecto
+from .forms import ProyectoForm
 from django.contrib.auth.decorators import login_required
 
 @login_required
@@ -9,47 +9,10 @@ def proyecto_list(request):
     return render(request, 'proyecto_list.html', {'proyectos': proyectos})
 
 
-
-@login_required
-
-
-
-
-
-
-
 @login_required
 def detalle_proyecto(request, pk):
     proyecto = get_object_or_404(Proyecto, pk=pk)
     return render(request, 'detalle_proyecto.html', {'proyecto': proyecto})
-
-@login_required
-def tarea_list(request, proyecto_id):
-    proyecto = Proyecto.objects.get(id=proyecto_id, creador=request.user)
-    tareas = Tarea.objects.filter(proyecto=proyecto)
-    return render(request, 'tarea_list.html', {'proyecto': proyecto, 'tareas': tareas})
-
-@login_required
-def tarea_create(request, proyecto_id):
-    proyecto = Proyecto.objects.get(id=proyecto_id, creador=request.user)
-    if request.method == 'POST':
-        form = TareaForm(request.POST)
-        if form.is_valid():
-            tarea = form.save(commit=False)
-            tarea.proyecto = proyecto
-            tarea.save()
-            return redirect('tarea_list', proyecto_id=proyecto.id)
-    else:
-        form = TareaForm()
-    return render(request, 'tarea_form.html', {'form': form, 'proyecto': proyecto})
-
-
-
-from django.shortcuts import render, get_object_or_404, redirect
-from .models import Proyecto
-from .forms import ProyectoForm
-
-
 
 
 from django.shortcuts import render, get_object_or_404, redirect

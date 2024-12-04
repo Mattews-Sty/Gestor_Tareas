@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Gestión de Tareas{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base_tasks_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/tarea_list_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/tarea_detail_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/tarea_form_styles.css' %}">
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+    <main>
+        <div class="container mx-4 my-3">
+        {% block content %}
+        {% endblock %}
+    </div>
+    </main>
+</body>
+</html>
